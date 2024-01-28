@@ -1,0 +1,26 @@
+﻿@model Project_63131016.Models.LoaiSach
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LoaiSach</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLoaiSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoaiSach)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaLoaiSach }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

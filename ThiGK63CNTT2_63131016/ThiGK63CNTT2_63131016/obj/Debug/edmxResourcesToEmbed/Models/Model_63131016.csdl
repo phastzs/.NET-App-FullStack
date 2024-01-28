@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThiGK63CNTT2_63131016Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="THANHVIEN">
+    <Key>
+      <PropertyRef Name="MaTV" />
+    </Key>
+    <Property Name="MaTV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HoTV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenTV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="AnhTV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TINH" Relationship="Self.FK__THANHVIEN__MaTin__4CA06362" FromRole="THANHVIEN" ToRole="TINH" />
+  </EntityType>
+  <EntityType Name="TINH">
+    <Key>
+      <PropertyRef Name="MaTinh" />
+    </Key>
+    <Property Name="MaTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenTinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="THANHVIENs" Relationship="Self.FK__THANHVIEN__MaTin__4CA06362" FromRole="TINH" ToRole="THANHVIEN" />
+  </EntityType>
+  <Association Name="FK__THANHVIEN__MaTin__4CA06362">
+    <End Role="TINH" Type="Self.TINH" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="THANHVIEN" Type="Self.THANHVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TINH">
+        <PropertyRef Name="MaTinh" />
+      </Principal>
+      <Dependent Role="THANHVIEN">
+        <PropertyRef Name="MaTinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ThiGK63CNTT2_63131016Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="THANHVIENs" EntityType="Self.THANHVIEN" />
+    <EntitySet Name="TINHs" EntityType="Self.TINH" />
+    <AssociationSet Name="FK__THANHVIEN__MaTin__4CA06362" Association="Self.FK__THANHVIEN__MaTin__4CA06362">
+      <End Role="TINH" EntitySet="TINHs" />
+      <End Role="THANHVIEN" EntitySet="THANHVIENs" />
+    </AssociationSet>
+    <FunctionImport Name="ThanhVien_TimKiem">
+      <Parameter Name="MaTV" Mode="In" Type="String" />
+      <Parameter Name="MaTinh" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

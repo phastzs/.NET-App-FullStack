@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ThiGK63CNTT2_63131016ModelStoreContainer" CdmEntityContainer="ThiGK63CNTT2_63131016Entities">
+    <EntitySetMapping Name="THANHVIENs">
+      <EntityTypeMapping TypeName="ThiGK63CNTT2_63131016Model.THANHVIEN">
+        <MappingFragment StoreEntitySet="THANHVIEN">
+          <ScalarProperty Name="MaTV" ColumnName="MaTV" />
+          <ScalarProperty Name="HoTV" ColumnName="HoTV" />
+          <ScalarProperty Name="TenTV" ColumnName="TenTV" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="AnhTV" ColumnName="AnhTV" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MaTinh" ColumnName="MaTinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TINHs">
+      <EntityTypeMapping TypeName="ThiGK63CNTT2_63131016Model.TINH">
+        <MappingFragment StoreEntitySet="TINH">
+          <ScalarProperty Name="MaTinh" ColumnName="MaTinh" />
+          <ScalarProperty Name="TenTinh" ColumnName="TenTinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ThanhVien_TimKiem" FunctionName="ThiGK63CNTT2_63131016Model.Store.ThanhVien_TimKiem" />
+  </EntityContainerMapping>
+</Mapping>

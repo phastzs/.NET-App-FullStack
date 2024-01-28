@@ -1,0 +1,57 @@
+﻿@model Project_63131016.Models.Sach
+@using Project_63131016.Models;
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Chi tiết sách</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên sách
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSach)
+        </dd>
+
+        <dt>
+            Đơn giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaBan)
+        </dd>
+        <dt>
+            Loại sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiSach.TenLoaiSach)
+        </dd>
+        <dt>
+            Bìa
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.HinhSach)*@
+            @Html.Image("../../Images/" + @Model.HinhSach, @Model.HinhSach, "100")
+        </dd>
+        <dt>
+
+        </dt>
+        <dd>
+            <br />
+            <a class="btn btn-success btn-sm" href="@Url.Action("AddToCart", "Cart_63131016", new {MaSach = @Model.MaSach})">
+                <span class="glyphicon glyphicon-shopping-cart"></span>  Thêm vào giỏ
+            </a>
+            <a class="btn btn-success btn-sm" href="@Url.Action("Index", "Home", new {MaSach = @Model.MaSach})">
+                Quay lại
+            </a>
+        </dd>
+
+    </dl>
+</div>
+

@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhatBookstore</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #264653;
+            color: white;
+        }
+
+        .navbar {
+            background-color: #2a9d8f;
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-color: white;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: white;
+        }
+
+            .navbar-dark .navbar-nav .nav-link:hover {
+                color: #f4a261;
+            }
+
+        .logo {
+            max-width: 90px;
+            margin-right: 10px;
+        }
+
+        footer {
+            background-color: #2a9d8f;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer-icon {
+            max-width: 20px;
+            margin-right: 5px;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        footer a {
+            color: white;
+        }
+
+            footer a:hover {
+                color: #17a2b8;
+            }
+
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <img src="~/Images/logo.png" alt="Logo" class="logo" />
+            <a class="navbar-brand">  @Html.ActionLink("PhatBookStore", "Index", "Home", new { area = "" }, new { @class = "nav-link text-white" })</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="danhMucDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Danh Mục
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="danhMucDropdown">
+                            <a class="dropdown-item">@Html.ActionLink("Tất cả truyện", "Index", "Books_63131016", new { area = "" }, new { @class = "nav-link text-dark" })</a>
+                            <a class="dropdown-item">@Html.ActionLink("Giỏ Hàng", "Index", "Cart_63131016", new { area = "" }, new { @class = "nav-link text-dark" })</a>
+                            <a class="dropdown-item">@Html.ActionLink("Hóa Đơn", "Index", "Invoices_63131016", new { area = "" }, new { @class = "nav-link text-dark" })</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Thể loại
+                        </a>
+                        @{Html.RenderAction("Index", "DropDownLoad_63131016");}
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/DangNhap">Đăng nhập</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/DangKy">Đăng ký</a>
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Giỏ Hàng", "Index", "Cart_63131016", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="container">
+        <br />
+        <h1>PhatBookstore chuyên cung cấp sách mới với đủ mọi thể loại </h1>
+        <hr />
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="col-sm-12">
+                <!-- Thêm class col-sm-12 để footer chuyển xuống dạng cột trên điện thoại -->
+                <p>&copy; 2023 PhatBookstore. All rights reserved.</p>
+            </div>
+            <br />
+            <div class="col-sm-12 text-md">
+                <!-- Thêm class col-sm-12 để footer chuyển xuống dạng cột trên điện thoại -->
+                <a href="tel:+84 934784137" class="mr-3"><img src="~/Images/vietnam.jpg" alt="Phone" class="footer-icon" />+84 934784137</a>
+                <a href="https://www.facebook.com/phatzaris01.01" target="_blank"><img src="~/Images/fb.jpg" alt="Facebook" class="footer-icon" />Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿@model PagedList.IPagedList<Project_63131016.Models.Sach>
+@using Project_63131016.Models
+@using PagedList.Mvc;
+<link rel="stylesheet" href="~/Content/PagedList.css" />
+@{
+    ViewBag.Title = "Home Page";
+}
+@using (Html.BeginForm())
+{
+    <p></p>
+    <div class="form-group form-inline">
+        <input type="text" name="SearchString" placeholder="Bạn tìm sách gì" class="form-control" style="border-radius: 5px 0 0 5px; padding: 8px; border: 1px solid #ced4da; border-right: none;" />
+        <input type="submit" style="background-color: #e9c46a; color: #e76f51; width: 100px; height: 40px; border-radius: 0 5px 5px 0; border: 1px solid #ced4da;" value="Search" />
+
+    </div>
+
+
+
+
+
+}
+<style>
+    .custom-button {
+        background-color: #f4a261; /* Màu nền của nút */
+        color: #ffffff; /* Màu chữ của nút */
+    }
+</style>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3" style="background-color: #264653; text-align: center; margin-top: 10px; margin-bottom: 10px;">
+            <h3 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">@Html.DisplayFor(modelItem => item.TenSach)</h3>
+            @Html.Image("../Images/" + item.HinhSach, "alt", "200")<br />
+            @Html.DisplayFor(modelItem => item.GiaBan)<br />
+            <a class="btn btn-info btn-sm custom-button" href="@Url.Action("Details", "Books_63131016", new {id = item.MaSach})" style="width: 80%; display: block; margin: auto;">
+                Xem chi tiết
+            </a>
+        </div>
+    }
+</div>
+
+
+<div>
+    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+    new
+    {
+        page,
+        currentFilter = ViewBag.CurrentFilter
+    }))
+</div>

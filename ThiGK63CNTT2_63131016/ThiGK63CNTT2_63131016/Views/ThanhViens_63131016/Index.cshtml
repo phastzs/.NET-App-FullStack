@@ -1,0 +1,135 @@
+﻿@model PagedList.IPagedList<ThiGK63CNTT2_63131016.Models.THANHVIEN>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Danh sách sinh viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .pagination-container {
+        text-align: center;
+    }
+
+        .pagination-container ul.pagination {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+        }
+
+            .pagination-container ul.pagination li {
+                display: inline;
+                margin-right: 5px;
+            }
+
+                .pagination-container ul.pagination li a {
+                    text-decoration: none;
+                    padding: 5px 10px;
+                    border: 1px solid #ccc;
+                    background-color: #f5f5f5;
+                    color: #333;
+                }
+
+                .pagination-container ul.pagination li.active a {
+                    background-color: #007bff;
+                    color: #fff;
+                    border-color: #007bff;
+                }
+
+                .pagination-container ul.pagination li.disabled a {
+                    pointer-events: none;
+                    cursor: not-allowed;
+                    background-color: #eee;
+                    color: #666;
+                    border-color: #ddd;
+                }
+
+</style>
+
+<h3>DANH SÁCH THÀNH VIÊN</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                STT
+            </th>
+            <th>
+                Mã TV
+            </th>
+            <th>
+                Họ thành viên
+            </th>
+            <th>
+                Tên thành viên
+            </th>
+            <th>
+                Giới tính
+            </th>
+            <th>
+                Ngày sinh
+            </th>
+            <th>
+                Ảnh TV
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Tỉnh
+            </th>
+            <th>
+                Chi tiết
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 0;
+        }
+        @foreach (var thanhVien in Model)
+        {
+            <tr>
+                <td>
+                    @{i++;}
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => thanhVien.MaTV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => thanhVien.HoTV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => thanhVien.TenTV)
+                </td>
+                <td>
+                    @{
+                        string gtinh = thanhVien.GioiTinh == true ? "Nam" : "Nữ";
+                    }
+                    @gtinh
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => thanhVien.NgaySinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => thanhVien.AnhTV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => thanhVien.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => thanhVien.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => thanhVien.TINH.TenTinh)
+                </td>
+                <td>
+                    @Html.ActionLink("Xem chi tiết", "Details", new { id = thanhVien.MaTV })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pagination-container">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })
+</div>

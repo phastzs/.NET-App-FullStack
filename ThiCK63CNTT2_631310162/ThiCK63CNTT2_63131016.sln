@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThiCK63CNTT2_63131016", "ThiCK63CNTT2_63131016\ThiCK63CNTT2_63131016.csproj", "{A813CE80-CCA9-4475-9CB0-213B5DA10F3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A813CE80-CCA9-4475-9CB0-213B5DA10F3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A813CE80-CCA9-4475-9CB0-213B5DA10F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A813CE80-CCA9-4475-9CB0-213B5DA10F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A813CE80-CCA9-4475-9CB0-213B5DA10F3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {998477A5-C00B-4716-9485-C60CB6D3C305}
+	EndGlobalSection
+EndGlobal
